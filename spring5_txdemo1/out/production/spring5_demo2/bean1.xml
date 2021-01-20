@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 1、注入数组类型-->
+    <bean id="stu" class="com.atguigu.spring5.collectiontype.Stu">
+        <property name="arr">
+            <array>
+                <value>java</value>
+                <value>python</value>
+            </array>
+        </property>
+
+        <!-- 1、注入list类型-->
+        <property name="list">
+            <list>
+                <value>java1</value>
+                <value>python1</value>
+            </list>
+        </property>
+
+        <!-- 注入map类型-->
+        <property name="map">
+            <map>
+                <entry key="JAVA" value="java"></entry>
+                <entry key="PYTHON" value="python"></entry>
+            </map>
+        </property>
+
+        <!-- 注入set类型-->
+        <property name="set">
+            <set>
+                <value>HTML</value>
+                <value>CSS</value>
+            </set>
+        </property>
+
+        <!--list集合中注入其他的对象 -->
+        <property name="courseList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
+
+
+    </bean>
+
+    <bean id="course1" class="com.atguigu.spring5.collectiontype.Course">
+        <property name="courseName">
+            <value>Mybatis</value>
+        </property>
+    </bean>
+
+    <bean id="course2" class="com.atguigu.spring5.collectiontype.Course">
+        <property name="courseName">
+            <value>Springboot</value>
+        </property>
+    </bean>
+
+
+
+
+
+</beans>
